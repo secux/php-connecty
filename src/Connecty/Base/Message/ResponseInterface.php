@@ -5,6 +5,9 @@
 
 namespace Connecty\Base\Message;
 
+use Connecty\Base\Model\DataModelInterface;
+use Connecty\Exception\InvalidResponseException;
+
 /**
  * Response Interface
  *
@@ -13,16 +16,33 @@ namespace Connecty\Base\Message;
 interface ResponseInterface
 {
     /**
-     * Get the original request which generated this response
-     *
-     * @return RequestInterface
-     */
-    public function getRequest();
-
-    /**
      * Get the response data
      *
-     * @return mixed
+     * @return DataModelInterface
      */
-    public function getResponseData();
+    public function getData();
+
+    /**
+     * Get the http status code
+     *
+     * @see https://de.wikipedia.org/wiki/HTTP-Statuscode
+     *
+     * @return int
+     */
+    public function getStatusCode();
+
+    /**
+     * Get the error messages that occurred by the request
+     *
+     * @return DataModelInterface
+     */
+    public function getErrors();
+
+    /**
+     * Validate the response data (check status code, check for existing error messages in the response, ...)
+     *
+     * @throws InvalidResponseException If something is wrong with the response
+     * @return static
+     */
+    public function validate();
 }

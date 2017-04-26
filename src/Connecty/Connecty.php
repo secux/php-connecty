@@ -23,25 +23,30 @@ class Connecty
     const PRODUCTION_MODE = 0;
     const TEST_MODE = 1;
     const SIMULATE_MODE = 2;
+
     /**
      * Logger used for logging
      * @var \Psr\Log\LoggerInterface
      */
     public $logger;
+
     /**
      * Storage used to store authorization and caching
      * @var StorageInterface
      */
     public $storage;
+
     /**
      * @var \GuzzleHttp\Client
      */
     protected $http_client;
+
     /**
      * Configuration
      * @var array
      */
     protected $config;
+
     /**
      * Test mode integer
      * @var int
@@ -60,6 +65,11 @@ class Connecty
     {
         $this->config = $config;
 
+        $this->test_mode = self::PRODUCTION_MODE;
+        if (!empty($config['test_mode'])) {
+            $this->setTestMode($config['test_mode']);
+        }
+
         // initialize default logger with logging disabled if not provided
         $this->logger = $logger !== null ? $logger : new Logger();
 
@@ -67,11 +77,6 @@ class Connecty
 
         // initialize empty memory storage if storage is not provided
         $this->storage = $storage !== null ? $storage : new MemoryStorage();
-
-        $this->test_mode = self::PRODUCTION_MODE;
-        if (!empty($config['test_mode'])) {
-            $this->setTestMode($config['test_mode']);
-        }
 
         Helper::initialize($this, $config);
     }
