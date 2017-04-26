@@ -1,7 +1,9 @@
 {
-    "name": "devtransition/connecty",
+    "name": "secux/connecty",
     "description": "Connecty gateway library",
-    "version": "0.3.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/secux/php-connecty",
+    "version": "1.0.0",
     "type": "library",
     "require": {
         "php": ">=5.4.0",

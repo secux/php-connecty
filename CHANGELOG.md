@@ -1,22 +1,22 @@
-# Changelog
+# Change Log
+All notable changes to this project will be documented in this file.
 
-All Notable changes to `devTransition/Connecty` will be documented in this file.
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
 
-Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
-
-## NEXT - YYYY-MM-DD
-
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
+## [Unreleased] - YYYY-MM-DD
 
 ### Security
-- Nothing
+
+### Deprecated
+
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [1.0.0] - 2017-05-12
+First Release
